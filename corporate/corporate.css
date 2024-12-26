@@ -1,0 +1,301 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ナビゲーションバーのアクセント */
+nav {
+    background-color: #090909;
+    color: #ffffff;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: background-color 0.5s, padding 0.5s;
+    z-index: 1200;
+    /* 背景画像より前面に配置 */
+
+    display: flex;
+    align-items: center;  /* 縦方向中央揃え */
+    justify-content: space-between;  /* ロゴを左に、リンクを中央に配置 */
+}
+
+nav.scrolled {
+    background-color: rgb(8, 8, 8);
+    /* スクロール時に不透明に変わる*/
+    padding: 10px;
+    /* スクロール時にパディングを縮小 */
+}
+
+nav a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    text-align: center;
+}
+
+nav .logo {
+    height: 45px; /* 適宜調整 */
+    /* margin-right: 360px; */
+    /* vertical-align: middle; */
+    margin-left: 50px;
+    margin-right: auto;
+    z-index: 1300; /* ロゴを前面に表示 */
+}
+
+/* リンクの配置を中央に */
+nav .links {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* 横幅いっぱいに広げる */
+}
+
+nav a:hover {
+    color: #ff9800;
+    /* オレンジ色をアクセントカラーに */
+}
+
+.content {
+    padding-top: 50px;
+    /* ナビゲーションバーの高さ分の余白 */
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+section {
+    color: #fff;
+    /* テキストの色を白に */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; 画像を繰り返さず一枚だけ表示 */
+    /* min-height: 250px; 各セクションの最低の高さを統一 */
+    padding: 20px 20px;
+    margin-bottom: 25px;
+    /* セクション間の余白 */
+    text-align: center;
+}
+
+section .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明のオーバーレイ */
+    padding: 20px;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+section h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f1f1f1;
+    color: #333;
+
+    margin-top: 0;
+    /* フッターの上部余白を削除 */
+    /* padding-top: 10px; 必要に応じてフッター内部の余白を調整 */
+}
+
+.company-section {
+    background-image: url("./img/corpo-company-image.jpg");
+    /* 背景画像のパス */
+}
+
+.services-section {
+    background-image: url("./img/corpo-services.webp");
+    /* 背景画像のパス */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-section .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明のオーバーレイ */
+    /* padding: 20px; */
+    display: inline-block;
+    border-radius: 8px;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.recruit-section {
+    background-image: url("./img/corpo-recruit.webp");
+    /* 背景画像のパス */
+}
+
+.contact-section {
+    background-image: url("./img/corpo-contact.avif");
+    /* 背景画像のパス */
+    margin-bottom: 10px;
+    /* セクション間の余白を狭く */
+    padding-bottom: 20px;
+    /* 必要に応じて調整 */
+}
+
+.map-section {
+    color: #080808;
+    /* テキストの色を白に */
+    text-align: center;
+    margin-top: 20px;
+    /* セクション間の余白を狭く */
+    padding-top: 20px;
+    /* 必要に応じて調整 */
+}
+
+.map-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    /* 地図とフッターの間隔を狭くする */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+/* ボタンにアクセントカラーを追加 */
+.cta-button {
+    background-color: #ff9800;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* transition: background-color 0.3s ease; */
+}
+
+.cta-button:hover {
+    background-color: #e68900;
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* モバイルメニューのスタイル */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+}
+
+@media (max-width: 768px) {
+    nav a{
+        display: none;
+        /* モバイルでは通常メニューを非表示 */
+    }
+
+    .hamburger {
+        display: inline-block;
+
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+        /* position: fixed; */
+        /* top: 15px;
+        left: 15px;
+        z-index: 1100; */
+        z-index: 1400;
+    }
+
+    .mobile-menu {
+        /* display: none; */
+        flex-direction: column;
+        background-color: #090909;
+        display: flex;
+
+        position: fixed;
+        /* 左側に固定 */
+        top: 0;
+        left: 0;
+        /* 初期状態で画面外 */
+        width: 100%;
+        /* メニューの幅 */
+        height: 100%;
+        /* 画面全体の高さ */
+        z-index: 1000;
+        padding: 70px 10px;
+        transition: transform 0.3s ease-in-out;
+        /* スライドアニメーション */
+        transform: translateX(-100%);
+        /* デフォルトで非表示 */
+        color: #fff;
+
+        /* margin-top: 60px; ヘッダーの高さ分余白を追加 */
+    }
+
+    .mobile-menu a {
+        color: #fff;
+        /* テキスト色を白に */
+        font-size: 18px;
+        /* 読みやすいサイズに調整 */
+        padding: 10px 15px;
+        text-decoration: none;
+        display: block;
+        /* リンクをブロック化 */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        /* 下線を追加 */
+    }
+
+    .mobile-menu.active {
+        transform: translateX(0);
+        /* メニューを表示 */
+    }
+
+    .map-container iframe {
+        height: 300px;
+        /* 高さを調整 */
+    }
+
+    footer {
+        font-size: 0.8rem;
+        /* 小さな画面でさらに調整 */
+    }
+}

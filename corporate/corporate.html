@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="私たちの会社は、Web開発、デザイン、コンサルティングでビジネスの成長を支援しています。">
+    <meta name="keywords" content="Web開発, デザイン, コンサルティング, 企業, サービス">
+    <meta name="robots" content="index, follow">
+    <title>企業サイト | Web開発とデザインのパートナー</title>
+    <link rel="stylesheet" href="./corporate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <button class="hamburger" aria-label="メニューを開閉">☰</button>
+
+    <nav id="navbar">
+        <img src="img/corpo-logo.jpg" alt="会社ロゴ" class="logo">
+        <div class="links">
+            <a href="#company">会社概要</a>
+            <a href="#services">サービス</a>
+            <a href="#recruit">採用情報</a>
+            <a href="#contact">お問い合わせ</a>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <a href="#company">会社概要</a>
+        <a href="#services">サービス</a>
+        <a href="#recruit">採用情報</a>
+        <a href="#contact">お問い合わせ</a>
+    </div>
+
+    <div class="content">
+        <section id="company" class="company-section">
+            <div class="overlay">
+                <i class="fas fa-building fa-2x"></i> <!-- アイコン追加 -->
+                <h2>会社概要</h2>
+                <p>私たちのミッションは、お客様に価値を提供し続けることです。</p>
+                <button class="cta-button">詳しく見る</button>
+            </div>
+        </section>
+        <section id="services" class="services-section">
+            <div class="overlay">
+                <i class="fas fa-cogs fa-2x"></i>
+                <h2>サービス</h2>
+                <p>Web開発、デザイン、コンサルティングを通じて、<br>ビジネスの成長をサポートします。</p>
+                <button class="cta-button">詳しく見る</button>
+            </div>
+        </section>
+        <section id="recruit" class="recruit-section">
+            <div class="overlay">
+                <i class="fas fa-users fa-2x"></i>
+                <h2>採用情報</h2>
+                <button class="cta-button">詳細はこちら</button>
+            </div>
+        </section>
+        <section id="contact" class="contact-section">
+            <div class="overlay">
+                <i class="fas fa-envelope fa-2x"></i>
+                <h2>お問い合わせ</h2>
+                <button class="cta-button">詳細はこちら</button>
+            </div>
+        </section>
+        <section id="location" class="map-section">
+            <div class="map-container">
+                <h2>アクセス</h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3241.7479757770884!2d139.74285797598955!3d35.6585804725946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1731082918195!5m2!1sja!2sjp"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Our Company</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // function toggleMenu() {
+        //     const mobileMenu = document.getElementById('mobileMenu');
+        //     mobileMenu.classList.toggle('active');
+        // }
+
+        window.onscroll = function () {
+            let navbar = document.getElementById("navbar");
+            if (window.scrollY > 100) {
+                navbar.style.backgroundColor = "#080808"; // スクロール時のナビバーの色を変更
+                navbar.style.padding = "10px"; // ナビバーのパディングを小さく
+                navbar.classList.add("scrolled"); // スクロール時にクラスを追加
+
+            } else {
+                navbar.style.backgroundColor = "#060606"; // 元の色に戻す
+                navbar.style.padding = "15px"; // 元のパディングに戻す
+                navbar.classList.remove("scrolled"); // 元のスタイルに戻す
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active'); // クラスの切り替え
+            });
+
+            // メニューリンクをクリックしたときにメニューを閉じる
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>癒しの宿「静寂の宿」</title>
+    <link rel="stylesheet" href="./ryokan.css">
+</head>
+<body>
+    <!-- ヘッダ -->
+    <header>
+        <h1>癒しの宿「静寂の宿」</h1>
+        <p>静寂と癒しのひとときへようこそ</p>
+    </header>
+
+    <!-- グローバルナビゲーション -->
+    <nav class="global-nav">
+        <a href="#home">ホーム</a>
+        <a href="#plans">宿泊プラン</a>
+        <a href="#dining">お食事</a>
+        <a href="#bath">お風呂</a>
+        <a href="#access">アクセス</a>
+    </nav>
+
+    <!-- コンテンツ全体 -->
+    <div class="content-wrapper">
+        <!-- メインコンテンツ -->
+        <main class="main-content">
+            <section id="plans">
+                <h2>宿泊プラン</h2>
+                <p>和室、洋室、スイートルームなどさまざまな部屋タイプをご用意しております。料金は季節により変動します。</p>
+                <img src="./img/ryokan-washitu.png" alt="部屋の写真">
+            </section>
+
+            <section id="dining">
+                <h2>お食事</h2>
+                <p>季節の旬の食材を使用した日本料理をご提供いたします。朝食、夕食共にお楽しみいただけます。</p>
+                <img src="./img/ryokan-dining-image.avif" alt="食事の写真">
+            </section>
+
+            <section id="bath">
+                <h2>お風呂</h2>
+                <p>大浴場、露天風呂、貸切風呂がございます。雄大な自然を眺めながらリラックスいただけます。</p>
+                <!-- TODO: 表示遅いからavifなどに変えるかも -->
+                <img src="./img/ryokan-bath.jpg" alt="お風呂の写真" loading="lazy">
+            </section>
+        </main>
+
+        <!-- ローカルナビゲーション -->
+        <aside class="local-nav">
+            <h3>ご予約のご案内</h3>
+            <ul>
+                <li><a href="#plans">料金表</a></li>
+                <li><a href="#calendar">空き状況</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- フッタ -->
+    <footer>
+        <p>〒123-4567 xx県xx市xx区xx町x-x</p>
+        <p>電話番号: 012-3456-7890 | メール: info@ryokan-example.com</p>
+        <p>&copy; 2024 静寂の宿</p>
+    </footer>
+</body>
+</html>
