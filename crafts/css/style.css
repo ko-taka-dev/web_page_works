@@ -1,0 +1,1342 @@
+@charset "utf-8";
+
+
+/*Font Awesomeの読み込み
+---------------------------------------------------------------------------*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+
+/*Google Fontsの読み込み
+---------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
+
+/*slick.cssの読み込み
+---------------------------------------------------------------------------*/
+@import url("https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css");
+
+/*テンプレート専用cssファイルの読み込み
+---------------------------------------------------------------------------*/
+@import url("inview.css");
+
+
+/*CSSカスタムプロパティ（サイト全体を一括管理する為の設定）
+---------------------------------------------------------------------------*/
+:root {
+
+	--primary-color: #4f6f3a;
+	/*主にテンプレートの背景色*/
+	--primary-inverse-color: #fff;
+	/*primary-colorの対として使う色*/
+
+	--accent-color: #333;
+	/*テンプレートのアクセントとなる色*/
+	--accent-inverse-color: #fff;
+	/*accent-colorの対として使う色*/
+
+	--accent-color-rgb: 51, 51, 51;
+	/*accent-colorをrgb数値にしたもの。個別に透明度を調整して使い回す為のものです。*/
+
+	--global-space: 10vw;
+	/*サイト内の余白の一括管理用。画面幅100%＝100vwです。*/
+}
+
+
+/*animation1のキーフレーム設定（開閉ブロックのアニメーションに使用）
+---------------------------------------------------------------------------*/
+@keyframes animation1 {
+	0% {
+		left: -200px;
+	}
+
+	100% {
+		left: 0px;
+	}
+}
+
+
+/*opa1のキーフレーム設定（汎用的）
+---------------------------------------------------------------------------*/
+@keyframes opa1 {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+body * {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-size: 13px;
+	/*基準となるフォントサイズ。*/
+}
+
+/*画面幅900px以上の追加指定*/
+@media screen and (min-width:900px) {
+
+	html,
+	body {
+		font-size: 16px;
+		/*基準となるフォントサイズ。*/
+	}
+
+}
+
+/*追加指定ここまで*/
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Shippori Mincho", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+	/*フォント種類*/
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	-webkit-text-size-adjust: none;
+	background: var(--primary-color);
+	/*背景色。css冒頭のprimary-colorを読み込みます。*/
+	color: var(--primary-inverse-color);
+	/*文字色。css冒頭のprimary-inverse-colorを読み込みます。*/
+	line-height: 2;
+	/*行間*/
+	animation: opa1 0.2s 0.5s both;
+	/*0.5秒待機後、0.2秒かけてフェードイン表示*/
+}
+
+/*トップページの背景画像*/
+body.home {
+	background-image: url("../img/bg1.png");
+	/*背景画像の読み込み*/
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 100%;
+}
+
+/*リセット*/
+figure {
+	margin: 0;
+}
+
+dd {
+	margin: 0;
+}
+
+nav,
+ul,
+li,
+ol {
+	margin: 0;
+	padding: 0;
+}
+
+nav ul {
+	list-style: none;
+}
+
+input {
+	font-size: 1rem;
+}
+
+/*ul,ol*/
+ul,
+ol {
+	margin-left: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+/*table全般の設定*/
+table {
+	border-collapse: collapse;
+}
+
+/*画像全般の設定*/
+img {
+	border: none;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+/*videoタグ*/
+video {
+	max-width: 100%;
+}
+
+/*iframeタグ*/
+iframe {
+	width: 100%;
+}
+
+/*sectionが続く場合*/
+section+section {
+	margin-top: 8vw;
+	/*sectionの上に空けるスペース*/
+}
+
+
+/*リンク（全般）設定
+---------------------------------------------------------------------------*/
+a {
+	color: var(--primary-inverse-color);
+	/*リンクテキストの色。css冒頭のprimary-inverse-colorを読み込みます。*/
+	transition: 0.3s;
+	/*マウスオン時の移り変わるまでの時間設定。0.3秒。*/
+}
+
+a:hover {
+	opacity: 0.8;
+	/*マウスオン時に色を80%にする*/
+}
+
+
+/*container（headerとcontentsを囲むブロック）
+---------------------------------------------------------------------------*/
+#container {
+	padding: var(--global-space);
+	/*ボックス内の余白。css冒頭のglobal-spaceを読み込みます*/
+}
+
+
+/*ヘッダー
+---------------------------------------------------------------------------*/
+/*ヘッダーブロック*/
+header {
+	margin-bottom: var(--global-space);
+	/*ボックス内の下（外側）へとる余白。css冒頭のglobal-spaceを読み込みます*/
+	text-align: center;
+	/*テキストをセンタリング*/
+}
+
+/*ロゴ初期設定*/
+#logo {
+	margin: 0;
+	padding: 0;
+}
+
+/*トップページの縦書きロゴ*/
+.home #logo img {
+	width: 50px;
+	/*幅*/
+}
+
+/*トップページのロゴ（英語ページ用）*/
+.home.en #logo img {
+	width: 200px;
+	/*幅*/
+}
+
+/*トップページ以外のロゴ*/
+#logo img {
+	width: 200px;
+	/*幅*/
+}
+
+/*英語ページのロゴ下の小さなテキスト*/
+#logo .small {
+	display: block;
+	font-size: 0.8rem;
+	/*文字サイズを80%*/
+}
+
+/*メッセージテキスト*/
+header .message {
+	margin: 5vw auto;
+	/*上下、左右へ、ボックスの外側にとるスペース*/
+}
+
+/*メイン画像（アスペクト比2:1の横長）*/
+#mainimg {
+	width: 100%;
+	height: 0;
+	padding-top: 50%;
+	/*アスペクト比を変更したい場合は、この行を変更する。*/
+	box-shadow: 5vw 5vw rgba(0, 0, 0, 0.4);
+	/*ボックスの影。右へ、下へ(※マイナス記号つきなので上へ)、0,0,0は黒のことで0.4は色が40%出た状態。*/
+	background: url('../img/mainimg_yoko.jpg') no-repeat center center / cover;
+	/*背景画像の読み込み*/
+}
+
+/*画面幅900px以上の追加指定*/
+@media screen and (min-width:900px) {
+
+	/*ヘッダーブロック（英語ページは除く）*/
+	body:not(.en).home header {
+		display: flex;
+		/*直接の子要素を横並びにする*/
+		justify-content: space-between;
+		text-align: left;
+		/*左よせの指定ですが、縦書きに対して使うので、上寄りになります*/
+	}
+
+	/*トップページ以外のロゴ*/
+	#logo img {
+		width: 300px;
+		/*幅*/
+	}
+
+	/*ロゴ画像（英語ページは除く）*/
+	body:not(.en).home #logo {
+		align-self: flex-end;
+		/*下に配置*/
+	}
+
+	/*メッセージテキスト（英語ページは除く）*/
+	body:not(.en) header .message {
+		margin: 0;
+		/*マージンのリセット*/
+		font-size: 1.5vw;
+		/*文字サイズ。画面幅100% = 100vwです。*/
+		align-self: center;
+		/*天地の中央に*/
+		writing-mode: vertical-rl;
+		/*縦書きの指定。*/
+		text-orientation: upright;
+		/*文字の向き*/
+	}
+
+	/*メイン画像（アスペクト比1:2の縦長）（英語ページは除く）*/
+	body:not(.en) #mainimg {
+		width: 30vw;
+		/*画像の幅*/
+		height: 60vw;
+		/*画像の高さ*/
+		box-shadow: 5vw -10vw rgba(0, 0, 0, 0.4);
+		/*ボックスの影。右へ、下へ(※マイナス記号つきなので上へ)、0,0,0は黒のことで0.4は色が40%出た状態。*/
+		background: url('../img/mainimg_tate.jpg') no-repeat center center / cover;
+		/*背景画像の読み込み*/
+	}
+
+}
+
+/*追加指定ここまで*/
+
+
+/*ヘッダー内の言語ボックス全体の設定
+---------------------------------------------------------------------------*/
+/*言語ボックス全体*/
+header .lang {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	/*絶対配置する為の指定*/
+	top: 0px;
+	/*上からの配置場所*/
+	right: 30px;
+	/*右からの配置場所*/
+	display: flex;
+	/*各言語を横に並べる*/
+	gap: 1rem;
+	/*各言語同士に空けるスペース。１文字分。*/
+	font-size: 0.8rem;
+	/*モイサイズ80%*/
+}
+
+/*言語ボックス１個あたり*/
+header .lang a {
+	display: block;
+	text-decoration: none;
+	padding: 0.2rem 1.5rem;
+	/*ボックス内の余白。上下、左右。*/
+	background: #000;
+	/*背景色*/
+	color: #fff;
+	/*文字色*/
+}
+
+
+/*メニューブロック初期設定
+---------------------------------------------------------------------------*/
+/*メニューをデフォルトで非表示*/
+#menubar {
+	display: none;
+}
+
+#menubar ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/*上で非表示にしたメニューを表示させる為の設定*/
+.large-screen #menubar {
+	display: block;
+}
+
+.small-screen #menubar.display-block {
+	display: block;
+}
+
+/*3本バーをデフォルトで非表示*/
+#menubar_hdr.display-none {
+	display: none;
+}
+
+/*ドロップダウンをデフォルトで非表示*/
+.ddmenu_parent ul {
+	display: none;
+}
+
+/*ddmenuを指定しているメニューに矢印アイコンをつける設定*/
+a.ddmenu::before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f078";
+	/*使いたいアイコン名（Font Awesome）をここで指定*/
+	font-weight: bold;
+	/*この手の設定がないとアイコンが出ない場合があります*/
+	font-size: 0.7rem;
+	/*文字サイズを70%に*/
+	padding-right: 0.5rem;
+	/*右側に空ける余白。0.5文字分。*/
+}
+
+
+/*メニューブロック設定
+---------------------------------------------------------------------------
+/*メニューブロック設定*/
+.small-screen #menubar.display-block {
+	position: fixed;
+	overflow: auto;
+	z-index: 100;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	padding-top: 100px;
+	/*上に空ける余白。ハンバーガーアイコンと重ならない為の指定ですのでお好みで変更OK。*/
+	background: var(--accent-color);
+	/*背景色*/
+	color: var(--accent-inverse-color);
+	/*文字色。css冒頭で指定しているaccent-inverse-colorを読み込みます*/
+	animation: animation1 0.2s both;
+	/*animation1を実行する。0.2sは0.2秒の事。*/
+
+}
+
+/*メニュー１個あたりの設定*/
+.small-screen #menubar li {
+	border: 1px solid #fff;
+	/*枠線の幅、線種、色*/
+	margin: 1rem;
+	/*メニューの外側に空けるスペース*/
+	border-radius: 5px;
+	/*角を丸くする指定*/
+}
+
+.small-screen #menubar a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	padding: 1rem 3rem;
+	/*メニュー内の余白。上下、左右へ。*/
+}
+
+.small-screen #menubar li li a {
+	background: var(--accent-inverse-color);
+	/*背景色。css冒頭で指定しているaccent-inverse-colorを読み込みます*/
+	color: var(--accent-color);
+	/*文字色。css冒頭で指定しているaccent-colorを読み込みます*/
+}
+
+/*小文字の英語部分*/
+#menubar span {
+	display: block;
+	font-size: 0.7em;
+	/*文字サイズを親要素の70%に*/
+	letter-spacing: 0.1em;
+	/*文字間隔を少しだけ広くとる*/
+	opacity: 0.6;
+	/*透明度。色が60%出た状態。*/
+}
+
+/*ドロップダウンブロック*/
+.small-screen #menubar ul ul {
+	animation: opa1 0.5s 0.1s both;
+	/*0.1秒待機後、0.5秒かけてフェードイン表示*/
+}
+
+
+/*３本バー（ハンバーガー）アイコン設定
+---------------------------------------------------------------------------*/
+/*３本バーを囲むブロック*/
+#menubar_hdr {
+	animation: opa1 0.3s 0.5s both;
+	position: fixed;
+	z-index: 101;
+	cursor: pointer;
+	top: 0px;
+	/*上からの配置場所*/
+	left: 0px;
+	/*左からの配置場所*/
+	width: 70px;
+	/*幅*/
+	height: 68px;
+	/*高さ*/
+	padding: 25px 20px;
+	/*上下、左右への余白*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.5s;
+	background: var(--accent-color);
+	/*背景色。css冒頭のaccent-colorを読み込みます。*/
+}
+
+/*ここは変更不要*/
+#menubar_hdr div {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/*バーの設定*/
+#menubar_hdr div span {
+	display: block;
+	width: 100%;
+	height: 2px;
+	/*線の太さ*/
+	background-color: var(--accent-inverse-color);
+	/*線の色。css冒頭のaccent-inverse-colorを読み込みます。*/
+	transition: all 0.5s ease-in-out;
+	position: absolute;
+}
+
+/*以下変更不要*/
+#menubar_hdr div span:nth-child(1) {
+	top: 0;
+}
+
+#menubar_hdr div span:nth-child(2) {
+	bottom: 0;
+}
+
+#menubar_hdr.ham div span:nth-child(1) {
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+#menubar_hdr.ham div span:nth-child(2) {
+	top: 50%;
+	transform: translateY(-50%) rotate(-45deg);
+}
+
+
+/*mainブロック
+---------------------------------------------------------------------------*/
+/*h2見出し*/
+main h2 {
+	position: relative;
+	text-align: center;
+	/*テキストをセンタリング*/
+	margin: 0 0 8vw;
+	/*h2の外側にとるスペース。上、左右、下への順番。*/
+	font-size: 2rem;
+	/*文字サイズ*/
+	font-weight: normal;
+	letter-spacing: 0.1em;
+	/*文字間隔を少しだけ広くする*/
+}
+
+/*h2の下が空きすぎるので続く要素がpもしくはh3の場合に少し上につめる*/
+main h2+p,
+main h2+h3 {
+	margin-top: -4vw;
+}
+
+/*装飾用の小文字*/
+main h2 .small {
+	display: block;
+	font-size: 0.5em;
+	/*文字サイズを親要素の50%に*/
+	opacity: 0.5;
+	/*透明度。色が50%出た状態。*/
+}
+
+/*h3見出し*/
+main h3 {
+	font-size: 1.4rem;
+	/*文字サイズ*/
+	letter-spacing: 0.1em;
+	/*文字間隔を少しだけ広くする*/
+	font-weight: normal;
+	/*デフォルトの太字を標準に*/
+}
+
+
+/*フッター共通
+---------------------------------------------------------------------------*/
+#footer-contents,
+#footermenu {
+	padding: 2rem var(--global-space);
+	/*上下、左右へのボックス内の余白。左右はcss冒頭で指定しているglobal-spaceを読み込みます*/
+}
+
+
+/*フッターのコンテンツ（住所やマップが入っているブロック）
+---------------------------------------------------------------------------*/
+/*ブロック全体*/
+#footer-contents {
+	background: rgba(var(--accent-color-rgb), 0.8);
+	/*背景色*/
+	color: var(--accent-inverse-color);
+	/*文字色*/
+}
+
+#footer-contents a {
+	color: inherit;
+}
+
+/*左側のブロック*/
+#footer-contents .left {
+	margin-bottom: 50px;
+	/*下に空けるスペース*/
+}
+
+/*ブロック内で使うbtnの設定*/
+#footer-contents .btn a {
+	border: 2px solid var(--accent-inverse-color);
+	/*枠線の幅、線種、色。色についてはcss冒頭の（accent-inverse-color）を読み込みます。*/
+}
+
+/*画面幅900px以上の追加指定*/
+@media screen and (min-width:900px) {
+
+	#footer-contents {
+		display: flex;
+		/*直接の子要素を横並びにします*/
+		gap: 5vw;
+		/*左右のボックスの間のマージン的な設定。*/
+	}
+
+	/*左側のブロック*/
+	#footer-contents .left {
+		margin-bottom: 0;
+		/*下のマージン（外側への余白）をリセット*/
+		width: 50%;
+		/*幅。leftとrightで合計100になれば、お好みで変更してもらって構いません。*/
+	}
+
+	/*右側のブロック*/
+	#footer-contents .right {
+		width: 50%;
+		/*幅。leftとrightで合計100になれば、お好みで変更してもらって構いません。*/
+	}
+
+}
+
+/*追加指定ここまで*/
+
+
+/*footer-contents内のマップ。レスポンシブにする為のものなので、基本は編集不要です。
+---------------------------------------------------------------------------*/
+.iframe-box {
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+	/*マップの高さを増やしたい場合は、ここの数値を上げてみて下さい。*/
+	position: relative;
+	overflow: hidden;
+}
+
+.iframe-box iframe {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+
+/*フッターメニュー設定
+---------------------------------------------------------------------------*/
+/*ボックス全体の設定*/
+#footermenu {
+	background: var(--accent-color);
+	/*背景色。css冒頭で指定しているaccent-colorを読み込みます*/
+	color: var(--accent-inverse-color);
+	/*文字色。css冒頭で指定しているaccent-inverse-colorを読み込みます*/
+	font-size: 0.8rem;
+	/*文字サイズ。*/
+	display: flex;
+	/*直接の子要素を横並びにします*/
+	justify-content: space-between;
+	/*並びかたの種類の指定*/
+	align-items: flex-start;
+	/*垂直揃えの指定。上に配置されるように。*/
+}
+
+/*ボックス内のリンクテキスト設定*/
+#footermenu a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/*ulタグ（メニューの１列あたり）*/
+#footermenu ul {
+	margin: 0;
+	list-style: none;
+	padding: 0 0.3em;
+	flex: 1;
+}
+
+/*メニューの見出し(title)*/
+#footermenu .title {
+	font-weight: bold;
+	/*太字にする*/
+	padding-bottom: 5px;
+	/*下に空けるスペース*/
+}
+
+
+/*フッター設定
+---------------------------------------------------------------------------*/
+small {
+	font-size: 100%;
+}
+
+footer {
+	font-size: 0.7rem;
+	/*文字サイズ*/
+	background: #222;
+	/*背景色*/
+	color: #ccc;
+	/*文字色*/
+	text-align: center;
+	/*内容をセンタリング*/
+	padding: 1rem;
+	/*ボックス内の余白*/
+}
+
+/*リンクテキスト*/
+footer a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/*著作部分*/
+footer .pr {
+	display: block;
+}
+
+
+/*フッター内にあるソーシャルメディアのアイコン
+---------------------------------------------------------------------------*/
+ul.icons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-self: center;
+	gap: 1rem;
+	/*アイコン同士のマージン的な要素。１文字分。*/
+}
+
+.icons i {
+	font-size: 40px;
+	/*アイコンサイズ*/
+}
+
+
+/*list-grid1（３カラムボックス）
+---------------------------------------------------------------------------*/
+.list-grid1 .list * {
+	margin: 0;
+	padding: 0;
+}
+
+/*ボックス１個あたり*/
+.list-grid1 .list {
+	display: grid;
+	margin-bottom: var(--global-space);
+	/*下に空けるスペース*/
+}
+
+/*ボックス内のp要素*/
+.list-grid1 .list p {
+	font-size: 0.85rem;
+	/*文字サイズを85%に*/
+	line-height: 1.5;
+	/*行間を狭くする*/
+}
+
+/*ボックス１個あたり*/
+.list-grid1 .list {
+	padding: 1rem;
+	/*ボックス内の余白。１文字分。*/
+	background: #fff;
+	/*背景色*/
+	color: #111;
+	/*文字色*/
+	grid-template-rows: auto 1fr auto;
+	/*１つ目（この場合はfigure要素のサイズ）と「詳しくみる」ボタンの高さは自動に、２つ目（この場合はtextブロック））を残った幅で使う*/
+	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+	/*ボックスの影。右へ、下へ、ぼかし幅、0,0,0は黒の事で0.1は色が10%出た状態。*/
+}
+
+/*ボックス内のfigure画像*/
+.list-grid1 .list figure {
+	margin: -1rem;
+	/*画像を枠いっぱいに表示させる為に上の「.list-grid1 .list」のpadding分をネガティブマーインで指定*/
+	margin-bottom: 0.5rem;
+	/*画像の下に空けるスペース*/
+}
+
+/*画面幅800px以上の追加指定*/
+@media screen and (min-width:800px) {
+
+	/*listブロック全体を囲むブロック*/
+	.list-grid1 {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		/*3列にする指定。4列にしたければrepeat(4, 1fr)とする。*/
+		gap: 3vw;
+		/*ブロックの間に空けるマージン的な指定*/
+	}
+
+	/*ボックス１個あたり*/
+	.list-grid1 .list {
+		margin-bottom: 0;
+		/*下に空けるスペースをなくす*/
+	}
+
+}
+
+/*追加指定ここまで*/
+
+
+/*list-free（レイアウトフリー用）
+---------------------------------------------------------------------------*/
+.list-free * {
+	margin: 0;
+	padding: 0;
+}
+
+/*list-freeボックス*/
+.list-free {
+	display: flex;
+	/*直接の子要素を横並びに*/
+	flex-direction: column;
+	/*一旦縦並びにしておく*/
+	align-items: flex-start;
+	/*子要素を上に揃える*/
+	margin-bottom: 10vw;
+	/*ボックスの下（外側）に空けるスペース*/
+	gap: 5vw;
+	/*子要素同士に空けるマージン的な要素。画面幅100%＝100vwです。*/
+}
+
+/*bg1背景の中にある最後のlist-freeの下マージンをなくす*/
+.bg1 .list-free:last-of-type {
+	margin-bottom: 0;
+}
+
+/*テキストブロック*/
+.list-free .text {
+	align-self: flex-start;
+	flex: 1;
+}
+
+/*h3見出し*/
+.list-free h3 {
+	letter-spacing: 0.1em;
+	/*文字間隔を少しだけ広くする*/
+	font-size: 1.5rem;
+	/*文字サイズを150%に*/
+	color: var(--primary-inverse-color);
+	/*文字色。css冒頭で指定しているprimary-inverse-colorを読み込みます*/
+	position: relative;
+	/*カギカッコを絶対配置する為に必要な指定*/
+	padding: 0 1rem;
+	/*上下、左右へのh3内の余白*/
+	margin: 0 auto;
+	/*左右の中央に配置*/
+}
+
+/*bg1背景の中にあるh3*/
+.bg1 .list-free h3 {
+	color: var(--accent-inverse-color);
+	/*文字色。css冒頭のaccent-inverse-colorを読み込みます。*/
+}
+
+/*h3見出しのカギカッコ装飾（共通設定）*/
+.list-free h3::before,
+.list-free h3::after {
+	content: "";
+	position: absolute;
+	width: 20px;
+	/*カギカッコの幅。お好みで。*/
+	height: 50px;
+	/*カギカッコの高さ。お好みで。*/
+	border: 1px solid var(--primary-inverse-color);
+	/*枠線の幅、線種、varは色の事でcss冒頭で指定しているprimary-inverse-colorを読み込みます*/
+}
+
+/*bg1背景の中にあるh3*/
+.bg1 .list-free h3::before,
+.bg1 .list-free h3::after {
+	border-color: var(--accent-inverse-color);
+	/*枠線の幅の上書き。css冒頭のaccent-inverse-colorを読み込みます*/
+}
+
+/*h3見出しの最初のカギカッコの設定*/
+.list-free h3::before {
+	top: -15px;
+	/*テキストからの距離。お好みで。*/
+	left: -15px;
+	/*テキストからの距離。お好みで。*/
+	border-right: none;
+	/*右の線は消す*/
+	border-bottom: none;
+	/*下の線は消す*/
+}
+
+/*h3見出しの最後のカギカッコの設定*/
+.list-free h3::after {
+	bottom: -15px;
+	/*テキストからの距離。お好みで。*/
+	right: -15px;
+	/*テキストからの距離。お好みで。*/
+	border-left: none;
+	/*左の線は消す*/
+	border-top: none;
+	/*上の線は消す*/
+}
+
+/*h4見出し*/
+.list-free h4 {
+	font-size: 1.3rem;
+	color: var(--primary-inverse-color);
+	/*文字色。css冒頭で指定しているprimary-inverse-colorを読み込みます*/
+	margin-bottom: 0.5em;
+}
+
+/*bg1背景の中にあるh4*/
+.bg1 .list-free h4 {
+	color: var(--accent-inverse-color);
+	/*文字色。css冒頭のaccent-inverse-colorを読み込みます。*/
+}
+
+/*画像ブロック*/
+.list-free .image {
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+	/*ボックスの影。右へ、下へ、ぼかす量。0,0,0は黒のことで0.1は色が10%出た状態。。*/
+}
+
+/*画像ブロック内のdivタグ。テキストを囲むブロックです。*/
+.list-free .image>div {
+	background: var(--accent-color);
+	/*背景色。css冒頭で指定しているaccent-colorを読み込みます*/
+	color: var(--accent-inverse-color);
+	/*文字色。css冒頭で指定しているaccent-inverse-colorを読み込みます*/
+	font-size: 0.7rem;
+	/*文字サイズを70%*/
+	padding: 1rem 2rem;
+	/*上下、左右への余白*/
+}
+
+/*画面幅600px以上の追加指定*/
+@media screen and (min-width:600px) {
+
+	/*list-freeボックス*/
+	.list-free {
+		flex-direction: row;
+		/*縦並びから横並びにする*/
+	}
+
+	/*h3見出し*/
+	.list-free h3 {
+		writing-mode: vertical-rl;
+		/*縦書きの指定。*/
+		text-orientation: upright;
+		/*文字の向き*/
+		padding: 1rem 0.5rem;
+		/*上下、左右へのh3内の余白*/
+	}
+
+	/*その他（汎用向け）お好みでもっと追加して使ってもOK*/
+	.list-free .w1 {
+		width: 30%;
+	}
+
+	.list-free .w2 {
+		width: 50%;
+	}
+
+	.list-free .order1 {
+		order: 1;
+	}
+
+	.list-free .order2 {
+		order: 2;
+	}
+
+	.list-free .order3 {
+		order: 3;
+	}
+
+	.list-free .mt1 {
+		margin-top: 10vw;
+	}
+
+	.list-free .mt2 {
+		margin-top: 20vw;
+	}
+
+}
+
+/*追加指定ここまで*/
+
+
+/*ボタン（btn）
+---------------------------------------------------------------------------*/
+.btn a {
+	display: block;
+	text-decoration: none;
+	font-size: 1rem;
+	text-align: center;
+	/*テキストをセンタリング*/
+	background: var(--accent-color);
+	/*背景色。css冒頭のvar(accent-color)を読み込みます*/
+	color: var(--accent-inverse-color);
+	/*文字色。css冒頭で指定しているaccent-inverse-colorを読み込みます*/
+	padding: 0.5rem !important;
+	/*ボタン内の余白*/
+	margin-top: 1rem !important;
+	/*ボタンの外（上）に空けるスペース*/
+}
+
+
+/*お知らせブロック
+---------------------------------------------------------------------------*/
+/*お知らせブロック*/
+.new {
+	border-top: 1px solid #ccc;
+	/*ブロックの上の線幅、線種、色*/
+}
+
+/*日付(dt)設定*/
+.new dt {
+	padding: 1rem;
+	/*dt内の余白*/
+}
+
+/*記事(dd)設定*/
+.new dd {
+	padding: 0 1rem 1rem;
+	/*上、左右、下へのdd内の余白*/
+	border-bottom: 1px solid #ccc;
+	/*下の線の幅、線種、色*/
+}
+
+/*ブロック内のspan。日付の横のアイコン的な部分の共通設定*/
+.new dt span {
+	display: inline-block;
+	margin-right: -1rem;
+	text-align: center;
+	line-height: 1.8;
+	/*行間（アイコンの高さ）*/
+	border-radius: 3px;
+	/*角を丸くする指定*/
+	padding: 0 0.5rem;
+	/*上下、左右へのブロック内の余白*/
+	width: 8rem;
+	/*幅。8文字分。*/
+	transform: scale(0.8);
+	/*80%のサイズに縮小*/
+	background: #fff;
+	/*背景色*/
+	color: #777;
+	/*文字色*/
+	border: 1px solid #999;
+	/*枠線の幅、線種、色*/
+}
+
+/*icon-bg1*/
+.new .icon-bg1 {
+	background: var(--accent-color);
+	/*背景色。css冒頭で指定しているaccent-colorを読み込みます*/
+	color: var(--accent-inverse-color);
+	/*文字色。css冒頭で指定しているaccent-inverse-colorを読み込みます*/
+	border-color: transparent;
+	/*枠線を出したくないので透明にする*/
+}
+
+/*icon-bg2*/
+.new .icon-bg2 {
+	background: #ff0000;
+	/*背景色*/
+	color: #fff;
+	/*文字色*/
+	border-color: transparent;
+	/*枠線を出したくないので透明にする*/
+}
+
+/*画面幅700px以上の追加指定*/
+@media screen and (min-width:700px) {
+
+	/*ブロック全体*/
+	.new {
+		display: grid;
+		/*gridを使う指定*/
+		grid-template-columns: auto 1fr;
+		/*横並びの指定。日付とアイコン部分の幅は自動で、内容が入るブロックは残り幅一杯とる。*/
+	}
+
+	/*日付(dt)設定*/
+	.new dt {
+		border-bottom: 1px solid #ccc;
+		/*下の線の幅、線種、色*/
+	}
+
+	/*記事(dd)設定*/
+	.new dd {
+		padding: 1rem;
+		/*dd内の余白*/
+	}
+
+}
+
+/*追加指定ここまで*/
+
+
+/*テーブル（ta1）
+---------------------------------------------------------------------------*/
+/*テーブル１行目に入った見出し部分（※caption）*/
+.ta1 caption {
+	font-weight: bold;
+	/*太字に*/
+	padding: 0.5rem 1rem;
+	/*ボックス内の余白*/
+	background: var(--accent-color);
+	/*背景色*/
+	color: var(--accent-inverse-color);
+	/*文字色*/
+	margin-bottom: 1rem;
+	/*下に空けるスペース*/
+	border-radius: 5px;
+	/*角を丸くする指定*/
+}
+
+/*ta1テーブルブロック設定*/
+.ta1 {
+	table-layout: fixed;
+	border-top: 1px solid #999;
+	/*テーブルの一番上の線。幅、線種、色*/
+	width: 100%;
+	/*幅*/
+	margin-bottom: 1rem;
+	/*テーブルの下に空けるスペース*/
+}
+
+/*tr（１行分）タグ設定*/
+.ta1 tr {
+	border-bottom: 1px solid #999;
+	/*テーブルの下線。幅、線種、色*/
+}
+
+/*th（左側）、td（右側）の共通設定*/
+.ta1 th,
+.ta1 td {
+	padding: 1rem;
+	/*ボックス内の余白*/
+	word-break: break-all;
+	/*英語などのテキストを改行で自動的に折り返す設定。これがないと、テーブルを突き抜けて表示される場合があります。*/
+}
+
+/*th（左側）のみの設定*/
+.ta1 th {
+	width: 30%;
+	/*幅*/
+	text-align: left;
+	/*左よせにする*/
+}
+
+/*画面幅900px以上の追加指定*/
+@media screen and (min-width:900px) {
+
+	/*th（左側）のみの設定*/
+	.ta1 th {
+		width: 20%;
+		/*幅*/
+	}
+
+}
+
+/*追加指定ここまで*/
+
+
+/*PAGE TOP（↑）設定
+---------------------------------------------------------------------------*/
+.pagetop-show {
+	display: block;
+}
+
+/*ボタンの設定*/
+.pagetop a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	z-index: 99;
+	position: fixed;
+	/*スクロールに追従しない(固定で表示)為の設定*/
+	right: 20px;
+	/*右からの配置場所指定*/
+	bottom: 20px;
+	/*下からの配置場所指定*/
+	color: #fff;
+	/*文字色*/
+	font-size: 1.5rem;
+	/*文字サイズ*/
+	background: rgba(0, 0, 0, 0.2);
+	/*背景色。0,0,0は黒の事で0.2は色が20%出た状態。*/
+	width: 60px;
+	/*幅*/
+	line-height: 60px;
+	/*高さ*/
+	border-radius: 50%;
+	/*円形にする*/
+}
+
+
+/*bg1背景
+---------------------------------------------------------------------------*/
+.bg1 {
+	background: var(--accent-color);
+	/*背景色。css冒頭のaccent-colorを読み込みます。*/
+	color: var(--accent-inverse-color);
+	/*文字色。css冒頭のaccent-inverse-colorを読み込みます。*/
+	padding: var(--global-space);
+	/*ボックス内の余白。css冒頭のglobal-spaceを読み込みます。*/
+
+	/*以下は変更不要*/
+	margin-right: calc(-1 * var(--global-space));
+	margin-left: calc(-1 * var(--global-space));
+}
+
+
+/*bg2背景
+---------------------------------------------------------------------------*/
+.bg2 {
+	background: rgba(0, 0, 0, 0.2);
+	/*背景色。0,0,0は黒のことで0.2は色が20%出た状態。*/
+	padding: 1.5rem;
+	/*ボックス内の余白。1.5文字分*/
+}
+
+
+/*marker（マーカー風スタイル）
+---------------------------------------------------------------------------*/
+.marker {
+	display: inline-block;
+	background: linear-gradient(transparent 80%, yellow 80%);
+}
+
+
+/*その他
+---------------------------------------------------------------------------*/
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.color-check,
+.color-check a {
+	color: #ffe400 !important;
+}
+
+.l {
+	text-align: left !important;
+}
+
+.c {
+	text-align: center !important;
+}
+
+.r {
+	text-align: right !important;
+}
+
+.ws {
+	width: 95%;
+	display: block;
+}
+
+.wl {
+	width: 95%;
+	display: block;
+}
+
+.mb0 {
+	margin-bottom: 0px !important;
+}
+
+.mb30 {
+	margin-bottom: 30px !important;
+}
+
+.mb5vw {
+	margin-bottom: 5vw !important;
+}
+
+.look {
+	display: inline-block;
+	padding: 0px 10px;
+	background: #000;
+	color: #fff;
+	border-radius: 3px;
+	margin: 5px 0;
+	word-break: break-all;
+}
+
+.small {
+	font-size: 0.75em;
+}
+
+.large {
+	font-size: 2em;
+	letter-spacing: 0.1em;
+}
+
+.pc {
+	display: none;
+}
+
+.dn {
+	display: none !important;
+}
+
+.block {
+	display: block !important;
+}
+
+/*画面幅900px以上の追加指定*/
+@media screen and (min-width:900px) {
+
+	.ws {
+		width: 48%;
+		display: inline;
+	}
+
+	.sh {
+		display: none;
+	}
+
+	.pc {
+		display: block;
+	}
+
+}
+
+/*追加指定ここまで*/
