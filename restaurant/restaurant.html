@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食のレストラン「食彩」</title>
+    <link rel="stylesheet" href="./restaurant.css">
+</head>
+
+<body>
+
+    <!-- ヘッダ -->
+    <header>
+        <h1>美食のレストラン「食彩」</h1>
+    </header>
+
+    <!-- ハンバーガーメニュー -->
+    <div class="hamburger" onclick="toggleNav()">
+        ☰
+    </div>
+
+    <!-- サイドナビゲーション -->
+    <aside class="side-nav" role="navigation" aria-label="サイドメニュー">
+        <h3>メニュー</h3>
+        <a href="#appetizers" id="link-appetizers">前菜</a>
+        <a href="#main" id="link-main">メイン</a>
+        <a href="#desserts" id="link-desserts">デザート</a>
+        <a href="#drinks" id="link-drinks">ドリンク</a>
+
+        <h3>店舗情報</h3>
+        <a href="#access" id="link-access">アクセス</a>
+        <a href="#hours" id="link-hours">営業時間</a>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <div class="content">
+        <section id="home">
+            <img src="./img/restaurant.jpg" alt="旬の素材を活かした美食レストラン「食彩」の外観" class="full-width-image">
+            <div class="home-text">
+                <h2>ようこそ「食彩」へ</h2>
+                <p>旬の素材を活かした創作料理をお楽しみいただける、落ち着いた空間のレストランです。</p>
+                <!-- ボタン例 -->
+                <a href="#reservation" class="btn-accent">ご予約はこちら</a>
+            </div>
+        </section>
+
+        <!-- メニューギャラリーのカルーセルスライダー -->
+        <section id="gallery">
+            <h2>メニュー</h2>
+            <div class="gallery">
+                <img src="./img/restaurant-appetizer.avif" alt="創作前菜の写真">
+                <img src="./img/restaurant-main-dish.avif" alt="シェフ特製メイン料理の写真">
+                <img src="./img/restaurant-desserts.jpg" alt="季節のデザート写真">
+                <img src="./img/restaurant-drinks.avif" alt="豊富なドリンクメニューの写真">
+            </div>
+        </section>
+
+        <section id="location" class="map-section">
+            <div class="map-container">
+                <h2>アクセス</h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479757770884!2d139.74285797598955!3d35.6585804725946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2z5p2x5Lqs44K_44Ov44O8!5e0!3m2!1sja!2sjp!4v1737019185264!5m2!1sja!2sjp"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- フッタ -->
+    <footer>
+        <p>&copy; 2024 食彩 - All rights reserved</p>
+    </footer>
+
+</body>
+
+<script>
+    function toggleNav() {
+        const sideNav = document.querySelector('.side-nav');
+        sideNav.classList.toggle('open');
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll(".side-nav a");
+        const sections = Array.from(document.querySelectorAll("section"));
+
+        window.addEventListener("scroll", () => {
+            let current = sections.find(section => {
+                const rect = section.getBoundingClientRect();
+                return rect.top <= 50 && rect.bottom >= 50;
+            });
+
+            links.forEach(link => link.classList.remove("active"));
+            if (current) {
+                document.querySelector(`a[href="#${current.id}"]`).classList.add("active");
+            }
+        });
+    });
+
+</script>
+
+</html>

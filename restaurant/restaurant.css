@@ -1,0 +1,271 @@
+:root {
+    --accent-color: #b05d33;
+    --hover-color: #e6c348;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+header {
+    background-color: #fff;
+    color: var(--accent-color);
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.side-nav {
+    background-color: #f8f8f8;
+    padding: 20px;
+    width: 200px;
+    position: fixed;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+}
+
+.side-nav a {
+    color: #444;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.side-nav a:hover {
+    color: var(--hover-color);
+}
+
+.side-nav a.active {
+    font-weight: bold;
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 16px;
+}
+
+.content {
+    margin-left: 240px;
+    /* 間隔を広げる */
+    padding: 80px 20px 20px;
+    width: calc(100% - 240px);
+    /* 間隔に応じた幅を調整 */
+    box-sizing: border-box;
+}
+
+.content h2 {
+    font-size: 1.6em;
+    color: var(--accent-color);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.content h3 {
+    font-size: 1.4em;
+    color: var(--accent-color);
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.full-width-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.home-text {
+    padding: 20px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.home-text h2 {
+    margin-top: 20px;
+}
+
+.home-text p {
+    margin-top: 10px;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.gallery img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-accent {
+    color: #fff;
+    background-color: var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+}
+
+.btn-accent:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.map-section {
+    color: #080808;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.map-container {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-top: 50px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        display: block; /* フレックスレイアウトを解除 */
+    }
+
+    .side-nav {
+        display: none;
+        width: 70%; /* 画面幅の70%を最大幅に設定 */
+        font-size: 0.9em; /* 少し小さく調整 */
+    }
+    .side-nav a {
+        margin-bottom: 8px; /* 間隔も調整 */
+        font-size: 1em; /* フォントサイズをスマホ向けに調整 */
+    }
+    .side-nav h3 {
+        font-size: 1em; /* 見出しも少し小さめ */
+    }
+
+    .hamburger {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1100;
+        cursor: pointer;
+    }
+
+    .content {
+        margin-left: 0;
+        padding-top: 60px;
+        width: 100%; /* コンテンツを画面幅いっぱいに表示 */
+        padding: 20px; /* 必要に応じて適度な余白を設定 */
+    }
+
+    .side-nav.open {
+        display: block;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        background-color: #f8f8f8;
+        width: 40%; /* メニューの幅 */
+        height: calc(100vh - 50px - 110px); /* 画面の高さからヘッダーとフッターの高さを引く */
+        overflow-y: auto;
+        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+        z-index: 1100;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    /* モバイル向けのフォントサイズ調整 */
+    header h1 {
+        font-size: 1.3em; /* タイトルのフォントサイズを小さく */
+    }
+    header {
+        padding: 10px; /* 上下の余白を減らす */
+    }
+
+    .content h2 {
+        font-size: 1.4em; /* 見出しのサイズを調整 */
+    }
+
+    .content h3 {
+        font-size: 1.2em; /* サブ見出しのサイズを調整 */
+    }
+
+    .home-text h2 {
+        font-size: 1.2em;
+    }
+
+    .home-text p {
+        font-size: 1em;
+    }
+
+    .gallery img {
+        width: 80%; /* ギャラリー画像の幅を縮小 */
+    }
+
+    .btn-accent {
+        font-size: 1em; /* ボタンのフォントサイズを調整 */
+    }
+
+    footer {
+        font-size: 0.9em; /* フッターのフォントサイズを少し小さく */
+    }
+}

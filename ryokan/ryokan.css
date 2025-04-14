@@ -1,0 +1,163 @@
+/* ベーススタイル */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../img/ryokan-header.avif') no-repeat center center/cover; */
+    /* padding: 80px 20px; */
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+
+    background-image: url('img/ryokan-header.avif'); /* 旅館の画像を設定 */
+    background-size: cover;
+    background-position: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    /* font-size: 3em; */
+    /* letter-spacing: 2px; */
+}
+
+header p {
+    font-size: 1.2em;
+    /* margin-top: 10px; */
+}
+
+.global-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    padding: 10px 0;
+}
+
+.global-nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.global-nav a:hover {
+    background: #fff;
+    color: #444;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.main-content img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    height: auto; /* アスペクト比を保ったままリサイズ */
+    max-width: 700px; /* 必要に応じて画像の最大幅を設定 */
+}
+
+.local-nav {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.local-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.local-nav li {
+    margin-bottom: 10px;
+}
+
+.local-nav a {
+    color: #444;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.local-nav a:hover {
+    color: #008cba;
+}
+
+footer {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* レスポンシブデザインの設定 */
+@media (max-width: 768px) {
+    header {
+        padding: 30px 15px; /* スマホ向けにパディングを縮小 */
+    }
+
+    header h1 {
+        font-size: 1.8em; /* ヘッダーのタイトルを少し小さめに */
+    }
+
+    header p {
+        font-size: 1em; /* 説明文のフォントサイズを調整 */
+    }
+
+    .global-nav {
+        flex-direction: column; /* ナビゲーションを縦並びに */
+        padding: 10px; /* スペースを縮小 */
+    }
+
+    .global-nav a {
+        margin: 5px 0; /* 縦並びに合わせて間隔を調整 */
+        padding: 10px; /* タップしやすいサイズを確保 */
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr; /* メインコンテンツとサイドバーを縦並びに */
+        gap: 15px; /* コンテンツ間の余白を縮小 */
+    }
+
+    .local-nav {
+        padding: 15px; /* サイドバーの余白を縮小 */
+    }
+
+    .local-nav li {
+        margin-bottom: 8px; /* リストアイテムの間隔を調整 */
+    }
+
+    footer {
+        padding: 15px; /* フッターの余白を調整 */
+    }
+}
+
+
+/* より小さなデバイス向け（例: 480px以下の画面幅） */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* 小画面向けにさらに縮小 */
+    }
+
+    header p {
+        font-size: 0.9em; /* 小さめのフォントサイズ */
+    }
+
+    .global-nav a {
+        font-size: 0.9em; /* ナビゲーションリンクのフォントサイズを縮小 */
+    }
+}
