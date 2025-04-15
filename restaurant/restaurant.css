@@ -1,271 +1,227 @@
 :root {
-    --accent-color: #b05d33;
-    --hover-color: #e6c348;
+    --space-3: 0.75rem;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Noto Serif JP', serif;
     margin: 0;
-    display: flex;
+    background-color: #f8f4f0;
+    color: #333;
 }
 
 header {
-    background-color: #fff;
-    color: var(--accent-color);
-    width: 100%;
-    padding: 15px;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: url('./img/restaurant.jpg') center/cover no-repeat;
+    color: white;
+    padding: 4rem 1rem;
+    text-align: center;
 }
 
 header h1 {
-    font-size: 1.8em;
-    margin: 0;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-.side-nav {
-    background-color: #f8f8f8;
-    padding: 20px;
-    width: 200px;
-    position: fixed;
-    top: 60px;
-    height: calc(100vh - 60px);
-    overflow-y: auto;
-    border-right: 1px solid #ddd;
+header p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-.side-nav a {
-    color: #444;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-    transition: color 0.3s;
-}
-
-.side-nav a:hover {
-    color: var(--hover-color);
-}
-
-.side-nav a.active {
-    font-weight: bold;
-    color: var(--accent-color);
-    border-left: 4px solid var(--accent-color);
-    padding-left: 16px;
-}
-
-.content {
-    margin-left: 240px;
-    /* 間隔を広げる */
-    padding: 80px 20px 20px;
-    width: calc(100% - 240px);
-    /* 間隔に応じた幅を調整 */
-    box-sizing: border-box;
-}
-
-.content h2 {
-    font-size: 1.6em;
-    color: var(--accent-color);
-    margin-top: 20px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.content h3 {
-    font-size: 1.4em;
-    color: var(--accent-color);
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
-
-.full-width-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.home-text {
-    padding: 20px;
-    text-align: center;
-    color: var(--accent-color);
-}
-
-.home-text h2 {
-    margin-top: 20px;
-}
-
-.home-text p {
-    margin-top: 10px;
-}
-
-.gallery {
+nav {
     display: flex;
-    overflow-x: scroll;
-    gap: 10px;
-    padding: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
 }
 
-.gallery img {
-    width: 300px;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.btn-accent {
-    color: #fff;
-    background-color: var(--accent-color);
-    padding: 10px 20px;
-    border-radius: 5px;
+nav a {
+    color: #b35c1e;
+    padding: 15px 20px;
     text-decoration: none;
-    transition: box-shadow 0.3s;
+    font-weight: bold;
 }
 
-.btn-accent:hover {
-    background-color: var(--hover-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+nav a:hover {
+    background-color: #f0e0d6;
 }
 
-section {
-    margin-bottom: 40px;
+.section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.map-section {
-    color: #080808;
-    text-align: center;
-    margin-bottom: 80px;
+h2 {
+    border-bottom: 2px solid #b35c1e;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
 }
 
-.map-container {
-    width: 100%;
+.owner-message {
+    background-color: #fffaf5;
+    padding: 4rem 1rem;
+}
+
+.owner-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
     margin: 0 auto;
-    border-radius: 8px;
-    overflow: hidden;
 }
 
-.map-container iframe {
+.owner-content img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #b35c1e;
+}
+
+.owner-text {
+    flex: 1;
+    min-width: 280px;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.owner-sign {
+    margin-top: 1.5rem;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.menu-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+.menu-card img {
     width: 100%;
-    height: 450px;
-    border: 0;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.menu-card:hover img {
+    transform: scale(1.1);
+}
+
+.menu-overlay {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    width: 100%;
+    color: white;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-card:hover .menu-overlay {
+    opacity: 1;
+}
+
+form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #b35c1e;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #a43408;
 }
 
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    margin-top: 50px;
+    padding: 30px 10px;
 }
 
-html {
-    scroll-behavior: smooth;
+.sns-icons {
+    display: flex;
+    gap: var(--space-3);
 }
 
-html,
-body {
-    overflow-x: hidden;
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
 }
 
-.hamburger {
-    display: none;
+.social-link:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 @media (max-width: 768px) {
-    body {
-        display: block; /* フレックスレイアウトを解除 */
+    .menu-item {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .side-nav {
-        display: none;
-        width: 70%; /* 画面幅の70%を最大幅に設定 */
-        font-size: 0.9em; /* 少し小さく調整 */
-    }
-    .side-nav a {
-        margin-bottom: 8px; /* 間隔も調整 */
-        font-size: 1em; /* フォントサイズをスマホ向けに調整 */
-    }
-    .side-nav h3 {
-        font-size: 1em; /* 見出しも少し小さめ */
-    }
-
-    .hamburger {
-        display: block;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1100;
-        cursor: pointer;
-    }
-
-    .content {
-        margin-left: 0;
-        padding-top: 60px;
-        width: 100%; /* コンテンツを画面幅いっぱいに表示 */
-        padding: 20px; /* 必要に応じて適度な余白を設定 */
-    }
-
-    .side-nav.open {
-        display: block;
-        position: fixed;
-        top: 50px;
-        left: 0;
-        background-color: #f8f8f8;
-        width: 40%; /* メニューの幅 */
-        height: calc(100vh - 50px - 110px); /* 画面の高さからヘッダーとフッターの高さを引く */
-        overflow-y: auto;
-        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
-        z-index: 1100;
-    }
-
-    .map-container iframe {
-        height: 300px;
-    }
-
-    /* モバイル向けのフォントサイズ調整 */
-    header h1 {
-        font-size: 1.3em; /* タイトルのフォントサイズを小さく */
-    }
-    header {
-        padding: 10px; /* 上下の余白を減らす */
-    }
-
-    .content h2 {
-        font-size: 1.4em; /* 見出しのサイズを調整 */
-    }
-
-    .content h3 {
-        font-size: 1.2em; /* サブ見出しのサイズを調整 */
-    }
-
-    .home-text h2 {
-        font-size: 1.2em;
-    }
-
-    .home-text p {
-        font-size: 1em;
-    }
-
-    .gallery img {
-        width: 80%; /* ギャラリー画像の幅を縮小 */
-    }
-
-    .btn-accent {
-        font-size: 1em; /* ボタンのフォントサイズを調整 */
-    }
-
-    footer {
-        font-size: 0.9em; /* フッターのフォントサイズを少し小さく */
+    .menu-item img {
+        margin: 0 0 10px 0;
     }
 }

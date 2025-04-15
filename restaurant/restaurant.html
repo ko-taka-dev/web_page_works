@@ -3,100 +3,133 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>美食のレストラン「食彩」</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>レストラン食彩 - SYOKUSAI</title>
+    <meta name="description" content="要修正">
+    <meta property="og:title" content="レストラン食彩 - SYOKUSAI">
+    <meta property="og:description" content="季節の食材を活かした和食をご提供しています。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="ogp.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./restaurant.css">
 </head>
 
 <body>
-
-    <!-- ヘッダ -->
     <header>
-        <h1>美食のレストラン「食彩」</h1>
+        <h1>レストラン 食彩 - SYOKUSAI</h1>
+        <p>四季折々の味を、心を込めてお届けします。</p>
     </header>
-
-    <!-- ハンバーガーメニュー -->
-    <div class="hamburger" onclick="toggleNav()">
-        ☰
-    </div>
-
-    <!-- サイドナビゲーション -->
-    <aside class="side-nav" role="navigation" aria-label="サイドメニュー">
-        <h3>メニュー</h3>
-        <a href="#appetizers" id="link-appetizers">前菜</a>
-        <a href="#main" id="link-main">メイン</a>
-        <a href="#desserts" id="link-desserts">デザート</a>
-        <a href="#drinks" id="link-drinks">ドリンク</a>
-
-        <h3>店舗情報</h3>
-        <a href="#access" id="link-access">アクセス</a>
-        <a href="#hours" id="link-hours">営業時間</a>
-    </aside>
-
-    <!-- メインコンテンツ -->
-    <div class="content">
-        <section id="home">
-            <img src="./img/restaurant.jpg" alt="旬の素材を活かした美食レストラン「食彩」の外観" class="full-width-image">
-            <div class="home-text">
-                <h2>ようこそ「食彩」へ</h2>
-                <p>旬の素材を活かした創作料理をお楽しみいただける、落ち着いた空間のレストランです。</p>
-                <!-- ボタン例 -->
-                <a href="#reservation" class="btn-accent">ご予約はこちら</a>
+    <nav>
+        <a href="#top">トップ</a>
+        <a href="#owner-message">オーナーより</a>
+        <a href="#menu">メニュー</a>
+        <a href="#reserve">ご予約</a>
+        <a href="#access">アクセス・営業時間</a>
+    </nav>
+    <main>
+        <section class="section" id="top" data-aos="fade-up">
+            <h2>ようこそ、レストラン食彩へ</h2>
+            <p>落ち着いた雰囲気の店内で、旬の食材を活かした本格料理をお楽しみいただけます。</p>
+        </section>
+        <section class="section" id="owner-message" data-aos="fade-up">
+            <h2>オーナーより</h2>
+            <div class="owner-content">
+                <img src="./img/restaurant-owner.jpg" alt="オーナーの写真" loading="lazy">
+                <div class="owner-text">
+                    <p>
+                        「レストラン食彩」は、四季折々の食材を活かした和の味わいを、肩肘張らず楽しんでいただけるよう心がけています。<br><br>
+                        私たちの料理は、見た目の美しさだけでなく、食べたときに「ほっとする」ことを大切にしています。<br>
+                        特に、旬の素材と手間ひまをかけた出汁にはこだわりを持って、日々丁寧に仕込んでおります。<br><br>
+                        特別な日も、日常のひとときも、ここで過ごす時間が皆さまにとって温かく心に残るものとなりますように。<br><br>
+                        皆さまのお越しを心よりお待ちしております。
+                    </p>
+                    <p class="owner-sign">店主</p>
+                </div>
             </div>
         </section>
-
-        <!-- メニューギャラリーのカルーセルスライダー -->
-        <section id="gallery">
+        <section class="section" id="menu" data-aos="fade-up">
             <h2>メニュー</h2>
-            <div class="gallery">
-                <img src="./img/restaurant-appetizer.avif" alt="創作前菜の写真">
-                <img src="./img/restaurant-main-dish.avif" alt="シェフ特製メイン料理の写真">
-                <img src="./img/restaurant-desserts.jpg" alt="季節のデザート写真">
-                <img src="./img/restaurant-drinks.avif" alt="豊富なドリンクメニューの写真">
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="./img/restaurant-appetizer.avif" alt="料理1" loading="lazy">
+                    <div class="menu-overlay">
+                        <div>特製サラダ</div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="./img/restaurant-desserts.jpg" alt="料理2" loading="lazy">
+                    <div class="menu-overlay">
+                        <div>特製デザート</div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="./img/restaurant-drinks.avif" alt="料理3" loading="lazy">
+                    <div class="menu-overlay">
+                        <div>特製ドリンク</div>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <section id="location" class="map-section">
-            <div class="map-container">
-                <h2>アクセス</h2>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479757770884!2d139.74285797598955!3d35.6585804725946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2z5p2x5Lqs44K_44Ov44O8!5e0!3m2!1sja!2sjp!4v1737019185264!5m2!1sja!2sjp"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <section class="section" id="reserve" data-aos="fade-up">
+            <h2>ご予約</h2>
+            <p>ご予約は下記のフォームから承っております。</p>
+            <form>
+                <input type="text" name="name" placeholder="お名前" required>
+                <input type="email" name="email" placeholder="メールアドレス" required>
+                <textarea name="message" rows="5" placeholder="ご予約内容をご記入ください" required></textarea>
+                <button type="submit">送信</button>
+            </form>
+        </section>
+        <section class="section" id="access" data-aos="fade-up">
+            <h2>アクセス・営業時間</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3>📍 店舗情報</h3>
+                    <p>〒105-0011 東京都港区芝公園４丁目２−８<br>
+                        XX駅 徒歩XX分<br>
+                        〇〇駅 徒歩○分
+                    </p>
+                    <h3>🕒 営業時間</h3>
+                    <ul>
+                        <li>月〜金：11:30〜14:30 / 17:30〜21:30</li>
+                        <li>土日祝：11:00〜21:00（通し営業）</li>
+                        <li>定休日：水曜日</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 280px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479757770884!2d139.74285797598955!3d35.6585804725946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2z5p2x5Lqs44K_44Ov44O8!5e0!3m2!1sja!2sjp!4v1737019185264!5m2!1sja!2sjp"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </section>
-
-    </div>
-
-    <!-- フッタ -->
+        
+    </main>
     <footer>
-        <p>&copy; 2024 食彩 - All rights reserved</p>
+        <p>&copy; 2025 SYOKUSAI. All rights reserved.</p>
+        <div class="sns-icons">
+            <a href="https://twitter.com/example" class="social-link" aria-label="X公式アカウント">
+                <i class="fab fa-x" aria-hidden="true"></i>
+                <span class="visually-hidden">X</span>
+            </a>
+            <a href="https://facebook.com/example" class="social-link" aria-label="Facebook公式ページ">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                <span class="visually-hidden">Facebook</span>
+            </a>
+            <a href="https://instagram.com/example" class="social-link" aria-label="Instagram公式アカウント">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                <span class="visually-hidden">Instagram</span>
+            </a>
+        </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
-
-<script>
-    function toggleNav() {
-        const sideNav = document.querySelector('.side-nav');
-        sideNav.classList.toggle('open');
-    }
-    document.addEventListener("DOMContentLoaded", () => {
-        const links = document.querySelectorAll(".side-nav a");
-        const sections = Array.from(document.querySelectorAll("section"));
-
-        window.addEventListener("scroll", () => {
-            let current = sections.find(section => {
-                const rect = section.getBoundingClientRect();
-                return rect.top <= 50 && rect.bottom >= 50;
-            });
-
-            links.forEach(link => link.classList.remove("active"));
-            if (current) {
-                document.querySelector(`a[href="#${current.id}"]`).classList.add("active");
-            }
-        });
-    });
-
-</script>
 
 </html>
