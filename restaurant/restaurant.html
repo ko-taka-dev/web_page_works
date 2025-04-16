@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>レストラン食彩 - SYOKUSAI</title>
-    <meta name="description" content="要修正">
     <meta property="og:title" content="レストラン食彩 - SYOKUSAI">
-    <meta property="og:description" content="季節の食材を活かした和食をご提供しています。">
+    <meta property="og:description" content="季節の食材を活かした料理をご提供しています。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="ogp.jpg">
+    <meta property="og:image" content="./img/restaurant.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="料理, レストラン, 季節の食材">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="季節の食材を活かした料理をご提供しています。">
+    <title>レストラン食彩 - SYOKUSAI</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -37,7 +39,7 @@
         <section class="section" id="owner-message" data-aos="fade-up">
             <h2>オーナーより</h2>
             <div class="owner-content">
-                <img src="./img/restaurant-owner.jpg" alt="オーナーの写真" loading="lazy">
+                <img src="./img/restaurant-owner.webp" alt="オーナーの写真" loading="lazy">
                 <div class="owner-text">
                     <p>
                         「レストラン食彩」は、四季折々の食材を活かした和の味わいを、肩肘張らず楽しんでいただけるよう心がけています。<br><br>
@@ -60,7 +62,7 @@
                     </div>
                 </div>
                 <div class="menu-card">
-                    <img src="./img/restaurant-desserts.jpg" alt="料理2" loading="lazy">
+                    <img src="./img/restaurant-desserts.webp" alt="料理2" loading="lazy">
                     <div class="menu-overlay">
                         <div>特製デザート</div>
                     </div>
@@ -76,11 +78,28 @@
         <section class="section" id="reserve" data-aos="fade-up">
             <h2>ご予約</h2>
             <p>ご予約は下記のフォームから承っております。</p>
-            <form>
-                <input type="text" name="name" placeholder="お名前" required>
-                <input type="email" name="email" placeholder="メールアドレス" required>
-                <textarea name="message" rows="5" placeholder="ご予約内容をご記入ください" required></textarea>
-                <button type="submit">送信</button>
+            <form id="reservationForm">
+                <label for="name">お名前</label>
+                <input type="text" id="name" name="name" placeholder="例: 山田太郎" required>
+
+                <label for="datetime">希望日時</label>
+                <input type="datetime-local" id="datetime" name="datetime" required>
+
+                <label for="people">人数</label>
+                <input type="text" id="people" name="people" placeholder="例: 1人" required>
+
+                <label for="phone">電話番号</label>
+                <input type="text" name="phone" id="phone" placeholder="例: 090-0123-4567" required>
+
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" placeholder="例: test@example.com" required>
+
+                <label for="message">ご予約内容</label>
+                <textarea name="message" id="message" rows="5" placeholder="例: 席のみ予約など" required></textarea>
+
+                <button type="submit">予約する</button>
+
+                <div id="results"></div>
             </form>
         </section>
         <section class="section" id="access" data-aos="fade-up">
@@ -106,7 +125,7 @@
                 </div>
             </div>
         </section>
-        
+
     </main>
     <footer>
         <p>&copy; 2025 SYOKUSAI. All rights reserved.</p>
@@ -127,6 +146,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/restaurant.js"></script>
     <script>
         AOS.init();
     </script>
