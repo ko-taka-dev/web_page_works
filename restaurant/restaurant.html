@@ -24,7 +24,7 @@
         <h1>レストラン 食彩 - SYOKUSAI</h1>
         <p>四季折々の味を、心を込めてお届けします。</p>
     </header>
-    <nav>
+    <nav role="navigation" aria-label="グローバルナビゲーション">
         <a href="#top">トップ</a>
         <a href="#owner-message">オーナーより</a>
         <a href="#menu">メニュー</a>
@@ -32,11 +32,11 @@
         <a href="#access">アクセス・営業時間</a>
     </nav>
     <main>
-        <section class="section" id="top" data-aos="fade-up">
+        <section class="section" id="top" data-aos="fade-up" aria-label="トップページ">
             <h2>ようこそ、レストラン食彩へ</h2>
             <p>落ち着いた雰囲気の店内で、旬の食材を活かした本格料理をお楽しみいただけます。</p>
         </section>
-        <section class="section" id="owner-message" data-aos="fade-up">
+        <section class="section" id="owner-message" data-aos="fade-up" aria-label="オーナーからのメッセージ">
             <h2>オーナーより</h2>
             <div class="owner-content">
                 <img src="./img/restaurant-owner.webp" alt="オーナーの写真" loading="lazy">
@@ -52,49 +52,49 @@
                 </div>
             </div>
         </section>
-        <section class="section" id="menu" data-aos="fade-up">
+        <section class="section" id="menu" data-aos="fade-up" aria-label="メニュー">
             <h2>メニュー</h2>
             <div class="menu-grid">
                 <div class="menu-card">
-                    <img src="./img/restaurant-appetizer.avif" alt="料理1" loading="lazy">
+                    <img src="./img/restaurant-appetizer.avif" alt="特製サラダの写真" loading="lazy">
                     <div class="menu-overlay">
                         <div>特製サラダ</div>
                     </div>
                 </div>
                 <div class="menu-card">
-                    <img src="./img/restaurant-desserts.webp" alt="料理2" loading="lazy">
+                    <img src="./img/restaurant-desserts.webp" alt="特製デザートの写真" loading="lazy">
                     <div class="menu-overlay">
                         <div>特製デザート</div>
                     </div>
                 </div>
                 <div class="menu-card">
-                    <img src="./img/restaurant-drinks.avif" alt="料理3" loading="lazy">
+                    <img src="./img/restaurant-drinks.avif" alt="特製ドリンクの写真" loading="lazy">
                     <div class="menu-overlay">
                         <div>特製ドリンク</div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section" id="reserve" data-aos="fade-up">
+        <section class="section" id="reserve" data-aos="fade-up" aria-label="ご予約">
             <h2>ご予約</h2>
             <p>ご予約は下記のフォームから承っております。</p>
-            <form id="reservationForm">
-                <label for="name">お名前</label>
+            <form id="reservationForm" aria-labelledby="reservation-title">
+                <label for="name">お名前<span class="required">必須</span></label>
                 <input type="text" id="name" name="name" placeholder="例: 山田太郎" required>
 
-                <label for="datetime">希望日時</label>
+                <label for="datetime">希望日時<span class="required">必須</span></label>
                 <input type="datetime-local" id="datetime" name="datetime" required>
 
-                <label for="people">人数</label>
+                <label for="people">人数<span class="required">必須</span></label>
                 <input type="text" id="people" name="people" placeholder="例: 1人" required>
 
-                <label for="phone">電話番号</label>
+                <label for="phone">電話番号<span class="required">必須</span></label>
                 <input type="text" name="phone" id="phone" placeholder="例: 090-0123-4567" required>
 
-                <label for="email">メールアドレス</label>
+                <label for="email">メールアドレス<span class="required">必須</span></label>
                 <input type="email" id="email" name="email" placeholder="例: test@example.com" required>
 
-                <label for="message">ご予約内容</label>
+                <label for="message">ご予約内容<span class="required">必須</span></label>
                 <textarea name="message" id="message" rows="5" placeholder="例: 席のみ予約など" required></textarea>
 
                 <button type="submit">予約する</button>
@@ -102,14 +102,14 @@
                 <div id="results"></div>
             </form>
         </section>
-        <section class="section" id="access" data-aos="fade-up">
+        <section class="section" id="access" data-aos="fade-up" aria-label="アクセス・営業時間">
             <h2>アクセス・営業時間</h2>
             <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
                 <div style="flex: 1; min-width: 280px;">
                     <h3>📍 店舗情報</h3>
                     <p>〒105-0011 東京都港区芝公園４丁目２−８<br>
-                        XX駅 徒歩XX分<br>
-                        〇〇駅 徒歩○分
+                        赤羽橋駅 徒歩約5分<br>
+                        御成門駅（A1出口） 徒歩約6分
                     </p>
                     <h3>🕒 営業時間</h3>
                     <ul>

@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background: url('./img/restaurant.jpg') center/cover no-repeat;
+    background: url('./img/restaurant.webp') center/cover no-repeat;
     color: white;
     padding: 4rem 1rem;
     text-align: center;
@@ -142,36 +142,67 @@ h2 {
 
 form {
     background-color: #fff;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 16px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
+    max-width: 640px;
+    margin: 2rem auto;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    color: #333;
 }
 
 form input,
 form textarea {
     width: 100%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
 }
 
 form button {
     background-color: #b35c1e;
     color: white;
     border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 form button:hover {
     background-color: #a43408;
+    transform: scale(1.02);
+}
+
+.required {
+    display: inline-block;
+    background-color: #e60000;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    margin-left: 0.5rem;
+    border-radius: 8px;
+    vertical-align: middle;
 }
 
 footer {
@@ -216,6 +247,29 @@ footer {
 }
 
 @media (max-width: 768px) {
+    header h1 {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .owner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .owner-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
     .menu-item {
         flex-direction: column;
         align-items: center;
@@ -223,5 +277,18 @@ footer {
 
     .menu-item img {
         margin: 0 0 10px 0;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        padding: 1.5rem 1rem;
+    }
+
+    footer {
+        padding: 20px 10px;
+        font-size: 0.9rem;
     }
 }
